@@ -110,7 +110,9 @@ $(document).ready(function () {
                                                 <div id="${key}" class="modal modal-fixed-footer">
                                                     <div class="modal-content">
                                                         <h4>即時影像</h4>
-                                                        <iframe src="${element.equipment.webcam}"></iframe>
+                                                        <p>
+                                                            <iframe class="w100" src="${element.equipment.webcam}"></iframe>
+                                                        </p>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <a class="modal-close waves-effect waves-red btn-flat">Cancel</a>

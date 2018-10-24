@@ -100,13 +100,7 @@ $(document).ready(function () {
                                                 <label>借用期間: 2018/10/18</label>
                                             </div>
                                             <div class="col s12 my-1 divider"></div>
-                                            <div class="col s6 m3 mb-sm-1">
-                                                <a class="btn waves-effect waves-light w100">重新讀取</a>
-                                            </div>
-                                            <div class="col s6 m3 mb-sm-1">
-                                                <a class="btn waves-effect waves-light w100">借用管理</a>
-                                            </div>
-                                            <div class="col s6 m3">
+                                            <div class="col s6 m3 offset-m6">
                                                 <a href="#${key}" class="btn waves-effect waves-light w100 modal-trigger">即時影像</a>
                                                 <div id="${key}" class="modal modal-fixed-footer">
                                                     <div class="modal-content">
@@ -121,7 +115,7 @@ $(document).ready(function () {
                                                 </div>
                                             </div>
                                             <div class="col s6 m3">
-                                                <a class="btn waves-effect waves-light w100">紀錄</a>
+                                                <a class="btn waves-effect waves-light w100">借閱紀錄</a>
                                             </div>
                                         </div>
                                     </div>

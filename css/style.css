@@ -18,6 +18,10 @@ body {
     background: -o-linear-gradient(0deg, #B6BFF1 35%, #FFAAD5 100%);
 }
 
+.room-select-bg {
+    background-color: #E9EDF5;
+}
+
 #myNavBar li a {
     color: white;
     font-size: 20px;

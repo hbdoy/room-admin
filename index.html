@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="js/hash.js"></script>
+    <script>
+        checkLogin() ? "" : window.location.href = './login.html';
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link href='./css/space.css' rel='stylesheet' />
     <link href='./css/style.css' rel='stylesheet' />
@@ -28,7 +32,7 @@
                 <li><a href="#">權限管理</a></li>
                 <li><a href="#">物品管理</a></li>
                 <li><a href="#">教室管理</a></li>
-                <li><a href="#">登出</a></li>
+                <li><a href="#" onclick="logout()">登出</a></li>
             </ul>
         </div>
     </nav>
@@ -39,9 +43,9 @@
         <li class="text-center"><a href="#">權限管理</a></li>
         <li class="text-center"><a href="#">物品管理</a></li>
         <li class="text-center"><a href="#">教室管理</a></li>
-        <li class="text-center"><a href="#">登出</a></li>
+        <li class="text-center"><a href="#" onclick="logout()">登出</a></li>
     </ul>
-    <div class="wrapper px-md-1 py-2">
+    <div class="wrapper px-md-8 py-2">
         <div class="row">
             <div class="col s12 m2">
                 <ul class="collapsible">
@@ -50,16 +54,16 @@
                             <div class="text-center text-brown w100" style="font-size: 20px">College</div>
                         </div>
                         <div class="collapsible-body text-center py-1">
-                            <div class="mb-1"><a class="text-brown" href="#m" style="font-size: 23px">管理學院</a></div>
-                            <div class="mb-1"><a class="text-brown" href="#h" style="font-size: 23px">人文學院</a></div>
-                            <div class="mb-1"><a class="text-brown" href="#t" style="font-size: 23px">科技學院</a></div>
-                            <div class="mb-1"><a class="text-brown" href="#e" style="font-size: 23px">教育學院</a></div>
+                            <div class="mb-1"><a class="text-brown" href="#m" style="font-size: 20px">管理學院</a></div>
+                            <div class="mb-1"><a class="text-brown" href="#h" style="font-size: 20px">人文學院</a></div>
+                            <div class="mb-1"><a class="text-brown" href="#t" style="font-size: 20px">科技學院</a></div>
+                            <div class="mb-1"><a class="text-brown" href="#e" style="font-size: 20px">教育學院</a></div>
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="col s12 m10">
-                <div id="msgText" class="col s12" style="margin-bottom: 20px"></div>
+                <div id="msgText" class="col s12" style="margin-bottom: 20px" hidden></div>
                 <div id="allRoom"></div>
             </div>
         </div>

@@ -41,6 +41,7 @@ $(document).ready(function () {
             },
             error: function (error) {
                 console.log("error:", error);
+                $("#msgText").show();
                 $("#msgText").html(`<h4 class="red-text text-darken-2">伺服器發生錯誤，請稍後再試</h4>`);
             }
         });

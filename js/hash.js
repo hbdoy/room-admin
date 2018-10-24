@@ -114,7 +114,7 @@ function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
+    for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0) == ' ') {
             c = c.substring(1);
@@ -127,3 +127,10 @@ function getCookie(cname) {
 }
 
 var checkLogin = () => sha256(getCookie("key") + s) === getCookie("value");
+
+
+var logout = () => {
+    setCookie("key", "", -1);
+    setCookie("value", "", -1);
+    window.location.href = '../index.html';
+}

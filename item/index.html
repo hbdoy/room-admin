@@ -20,6 +20,15 @@
 </head>
 
 <body>
+    <!-- Dropdown Structure -->
+    <ul id="item" class="dropdown-content">
+        <li><a href="./index.html">狀態</a></li>
+        <li><a href="./item-vali/index.html">審查</a></li>
+    </ul>
+    <ul id="room" class="dropdown-content">
+        <li><a href="../index.html">狀態</a></li>
+        <li><a href="../room-vali/index.html">審查</a></li>
+    </ul>
     <nav>
         <div class="nav-wrapper px-md-2 bg-gradient-level">
             <a href="#!" class="brand-logo">
@@ -28,23 +37,29 @@
             </a>
             <a href="#" data-target="myNavBar" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="#"><i class="material-icons">person</i></a></li>
-                <li><a href="#">帳號管理</a></li>
-                <li><a href="#">權限管理</a></li>
-                <li><a href="#">物品管理</a></li>
-                <li><a href="#">教室管理</a></li>
+                <li><a href="#!"><i class="material-icons">person</i></a></li>
+                <li><a href="#!">帳號管理</a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="item">物品管理<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="room">教室管理<i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a href="#" onclick="logout()">登出</a></li>
             </ul>
         </div>
     </nav>
-
+    <!-- Dropdown Structure -->
+    <ul id="item-rwd" class="dropdown-content">
+        <li><a href="./index.html">狀態</a></li>
+        <li><a href="./item-vali/index.html">審查</a></li>
+    </ul>
+    <ul id="room-rwd" class="dropdown-content">
+        <li><a href="../index.html">狀態</a></li>
+        <li><a href="../room-vali/index.html">審查</a></li>
+    </ul>
     <ul class="sidenav bg-gradient" id="myNavBar">
         <li style="background-color: #AFACD4"><a href="#"><i class="material-icons white-text">person</i></a></li>
-        <li class="text-center"><a href="#">帳號管理</a></li>
-        <li class="text-center"><a href="#">權限管理</a></li>
-        <li class="text-center"><a href="#">物品管理</a></li>
-        <li class="text-center"><a href="#">教室管理</a></li>
-        <li class="text-center"><a href="#" onclick="logout()">登出</a></li>
+        <li class="text-center"><a href="#!">帳號管理</a></li>
+        <li class="text-center"><a class="dropdown-trigger" href="#!" data-target="item-rwd">物品管理<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li class="text-center"><a class="dropdown-trigger" href="#!" data-target="room-rwd">教室管理<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li class="text-center"><a href="#!" onclick="logout()">登出</a></li>
     </ul>
 
     <div class="container">
@@ -71,7 +86,7 @@
                                 <td>鑰匙</td>
                                 <td>管院鑰匙-1</td>
                                 <td class="status-text-black">已借出</td>
-                                <td>2018/10/22<br>2018/10/23</td>
+                                <td>2018/10/22~2018/10/23</td>
                                 <td>Ray</td>
                                 <td>
                                     <a href="#" class="btn-text-blue">修改</a>
@@ -83,7 +98,7 @@
                                 <td>延長線</td>
                                 <td>延長線-9</td>
                                 <td class="status-text-green">存貨中</td>
-                                <td>2018/10/22<br>2018/10/23</td>
+                                <td>2018/10/22~2018/10/23</td>
                                 <td>Ray</td>
                                 <td>
                                     <a href="#" class="btn-text-blue">修改</a>

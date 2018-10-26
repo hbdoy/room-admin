@@ -72,6 +72,10 @@ $(document).ready(function () {
                                         </span>
                                         <div class="row mb-0">
                                             <div class="col s12 m6">
+                                                <label>借用人: Bob</label>
+                                                <label>借用期間: 2018/10/18</label>
+                                            </div>
+                                            <div class="col s12 m6">
                                                 <div class="switch">
                                                     <label>
                                                         門鎖
@@ -94,10 +98,6 @@ $(document).ready(function () {
                                                         <span class="lever"></span>
                                                     </label>
                                                 </div>
-                                            </div>
-                                            <div class="col s12 m6">
-                                                <label>借用人: Bob</label>
-                                                <label>借用期間: 2018/10/18</label>
                                             </div>
                                             <div class="col s12 my-1 divider"></div>
                                             <div class="col s6 m3 offset-m6">

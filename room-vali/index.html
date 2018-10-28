@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" form-content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" form-content="ie=edge">
     <title>教室審核</title>
     <script src="../js/hash.js"></script>
     <script>
@@ -21,11 +21,11 @@
 
 <body>
     <!-- Dropdown Structure -->
-    <ul id="item" class="dropdown-content">
+    <ul id="item" class="dropdown-form-content">
         <li><a href="../item/index.html">狀態</a></li>
         <li><a href="../item/item-vali/index.html">審核</a></li>
     </ul>
-    <ul id="room" class="dropdown-content">
+    <ul id="room" class="dropdown-form-content">
         <li><a href="../index.html">狀態</a></li>
         <li><a href="./index.html">審核</a></li>
     </ul>
@@ -46,11 +46,11 @@
         </div>
     </nav>
     <!-- Dropdown Structure -->
-    <ul id="item-rwd" class="dropdown-content">
+    <ul id="item-rwd" class="dropdown-form-content">
         <li><a href="../item/index.html">狀態</a></li>
         <li><a href="../item/item-vali/index.html">審核</a></li>
     </ul>
-    <ul id="room-rwd" class="dropdown-content">
+    <ul id="room-rwd" class="dropdown-form-content">
         <li><a href="../index.html">狀態</a></li>
         <li><a href="./index.html">審核</a></li>
     </ul>
@@ -71,26 +71,26 @@
             </div>
             <div class="col s12">
                 <table class="striped highlight responsive-table">
-                    <form action="#">
-                        <thead class="btn-border form-head-shadow">
-                            <tr>
-                                <th>
-                                    <label>
-                                        <input type="checkbox" class="checkAll1" />
-                                        <span>　</span>
-                                    </label>
-                                </th>
-                                <th>教室</th>
-                                <th>日期</th>
-                                <th>起始時間</th>
-                                <th>結束時間</th>
-                                <th>借用人</th>
-                                <th>用途</th>
-                                <th>重複</th>
-                            </tr>
-                        </thead>
 
-                        <tbody>
+                    <thead class="btn-border form-head-shadow">
+                        <tr>
+                            <th>
+                                <label>
+                                    <input type="checkbox" class="checkAll1" />
+                                    <span>　</span>
+                                </label>
+                            </th>
+                            <th>教室</th>
+                            <th>日期</th>
+                            <th>起始時間</th>
+                            <th>結束時間</th>
+                            <th>借用人</th>
+                            <th>用途</th>
+                            <th>重複</th>
+                        </tr>
+                    </thead>
+                    <form action="#" id="myForm">
+                        <tbody id="table-content">
                             <tr>
                                 <td>
                                     <label>
@@ -109,42 +109,12 @@
                             <tr>
                                 <td>
                                     <label>
-                                        <input type="checkbox" name="room-checkbox[]" value="789" />
+                                        <input type="checkbox" name="room-checkbox[]" value="456" />
                                         <span>　</span>
                                     </label>
                                 </td>
-                                <td>圖資207</td>
-                                <td>2018/10/16</td>
-                                <td>10:00</td>
-                                <td>16:00</td>
-                                <td>Ray</td>
-                                <td>校內用途</td>
-                                <td>單周</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" name="room-checkbox[]" value="789" />
-                                        <span>　</span>
-                                    </label>
-                                </td>
-                                <td>圖資207</td>
-                                <td>2018/10/16</td>
-                                <td>10:00</td>
-                                <td>16:00</td>
-                                <td>Ray</td>
-                                <td>校內用途</td>
-                                <td>單周</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" name="room-checkbox[]" value="789" />
-                                        <span>　</span>
-                                    </label>
-                                </td>
-                                <td>圖資207</td>
-                                <td>2018/10/16</td>
+                                <td>管204</td>
+                                <td>2018/10/09</td>
                                 <td>10:00</td>
                                 <td>16:00</td>
                                 <td>Ray</td>
@@ -152,25 +122,24 @@
                                 <td>單周</td>
                             </tr>
                         </tbody>
-
-                        <thead class="d-none-sm form-head-shadow btn-border">
-                            <tr>
-                                <th>
-                                    <label>
-                                        <input type="checkbox" class="checkAll2" />
-                                        <span>　</span>
-                                    </label>
-                                </th>
-                                <th>教室</th>
-                                <th>日期</th>
-                                <th>起始時間</th>
-                                <th>結束時間</th>
-                                <th>借用人</th>
-                                <th>用途</th>
-                                <th>重複</th>
-                            </tr>
-                        </thead>
                     </form>
+                    <thead class="d-none-sm form-head-shadow btn-border">
+                        <tr>
+                            <th>
+                                <label>
+                                    <input type="checkbox" class="checkAll2" />
+                                    <span>　</span>
+                                </label>
+                            </th>
+                            <th>教室</th>
+                            <th>日期</th>
+                            <th>起始時間</th>
+                            <th>結束時間</th>
+                            <th>借用人</th>
+                            <th>用途</th>
+                            <th>重複</th>
+                        </tr>
+                    </thead>
                 </table>
 
             </div>

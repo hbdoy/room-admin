@@ -153,7 +153,7 @@ $(document).ready(function () {
             success: function (result) {
                 console.log(result);
                 $(`#log${id} .modal-content .frame`).html(`
-                <pre>${JSON.stringify(result, null, 3)}</pre>
+                <pre class="w100">${JSON.stringify(result, null, 3)}</pre>
                 `);
             },
             error: function (error) {
@@ -161,9 +161,6 @@ $(document).ready(function () {
                 $(`#log${id} .modal-content .frame`).html(`<h4 class="red-text text-darken-2">伺服器發生錯誤，請稍後再試</h4>`);
             }
         });
-        // $(`#log${id} .modal-content .frame`).html(`
-        //     <iframe class="w100" src="https://xn--pss23c41retm.tw/api/reservation/${depart}/${id}"></iframe>
-        // `);
     });
 
     function checkDeviceStatus(str) {

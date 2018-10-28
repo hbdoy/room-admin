@@ -8,7 +8,7 @@
     <title>物品審核</title>
     <script src="../../js/hash.js"></script>
     <script>
-        checkLogin() ? "" : window.location.href = '../login.html';
+        checkLogin() ? "" : window.location.href = '../../login.html';
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link href='../../css/space.css' rel='stylesheet' />
@@ -38,7 +38,7 @@
             <a href="#" data-target="myNavBar" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="#!"><i class="material-icons">person</i></a></li>
-                <li><a href="#!">帳號管理</a></li>
+                <li><a href="../../account/index.html">帳號管理</a></li>
                 <li><a class="dropdown-trigger" href="#!" data-target="item">物品管理<i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a class="dropdown-trigger" href="#!" data-target="room">教室管理<i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a href="#" onclick="logout()">登出</a></li>
@@ -56,7 +56,7 @@
     </ul>
     <ul class="sidenav bg-gradient" id="myNavBar">
         <li style="background-color: #AFACD4"><a href="#"><i class="material-icons white-text">person</i></a></li>
-        <li class="text-center"><a href="#!">帳號管理</a></li>
+        <li class="text-center"><a href="../../account/index.html">帳號管理</a></li>
         <li class="text-center"><a class="dropdown-trigger" href="#!" data-target="item-rwd">物品管理<i class="material-icons right">arrow_drop_down</i></a></li>
         <li class="text-center"><a class="dropdown-trigger" href="#!" data-target="room-rwd">教室管理<i class="material-icons right">arrow_drop_down</i></a></li>
         <li class="text-center"><a href="#!" onclick="logout()">登出</a></li>

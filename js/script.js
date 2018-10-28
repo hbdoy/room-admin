@@ -1,6 +1,8 @@
 $(document).ready(function () {
     M.AutoInit();
 
+    var depart;
+
     var type = {
         m: '管理學院',
         h: '人文學院',
@@ -25,6 +27,7 @@ $(document).ready(function () {
             case 'e':
                 $("#allRoom").html(`<h4 class="grey-text text-darken-2">載入中...</h4>`);
                 getData(type[hash]);
+                depart = type[hash];
                 break;
             default:
                 location.hash = "m";
@@ -101,8 +104,8 @@ $(document).ready(function () {
                                             </div>
                                             <div class="col s12 my-1 divider"></div>
                                             <div class="col s6 m3 offset-m6">
-                                                <a href="#${key}" class="btn waves-effect waves-light w100 modal-trigger">即時影像</a>
-                                                <div id="${key}" class="modal modal-fixed-footer">
+                                                <a href="#cam${key}" class="btn waves-effect waves-light w100 modal-trigger">即時影像</a>
+                                                <div id="cam${key}" class="modal modal-fixed-footer">
                                                     <div class="modal-content">
                                                         <h4>即時影像</h4>
                                                         <p>
@@ -115,7 +118,16 @@ $(document).ready(function () {
                                                 </div>
                                             </div>
                                             <div class="col s6 m3">
-                                                <a class="btn waves-effect waves-light w100">借閱紀錄</a>
+                                                <a href="#log${key}" class="btn waves-effect waves-light w100 borrowLog modal-trigger" data-id="${key}">借閱紀錄</a>
+                                                <div id="log${key}" class="modal modal-fixed-footer">
+                                                    <div class="modal-content">
+                                                        <h4>借閱紀錄</h4>
+                                                        <p class="frame"></p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a class="modal-close waves-effect waves-red btn-flat">Cancel</a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -130,6 +142,29 @@ $(document).ready(function () {
         $("#allRoom").html(str);
         $('.modal').modal();
     }
+
+    $(document).click('.borrowLog', function (e) {
+        // console.log(e.target.dataset.id);
+        var id = e.target.dataset.id;
+        $(`#log${id} .modal-content .frame`).html(`<h4 class="grey-text text-darken-2">載入中...</h4>`);
+        $.ajax({
+            url: `https://xn--pss23c41retm.tw/api/reservation/${depart}/${id}`,
+            type: "GET",
+            success: function (result) {
+                console.log(result);
+                $(`#log${id} .modal-content .frame`).html(`
+                <pre>${JSON.stringify(result, null, 3)}</pre>
+                `);
+            },
+            error: function (error) {
+                console.log("error:", error);
+                $(`#log${id} .modal-content .frame`).html(`<h4 class="red-text text-darken-2">伺服器發生錯誤，請稍後再試</h4>`);
+            }
+        });
+        // $(`#log${id} .modal-content .frame`).html(`
+        //     <iframe class="w100" src="https://xn--pss23c41retm.tw/api/reservation/${depart}/${id}"></iframe>
+        // `);
+    });
 
     function checkDeviceStatus(str) {
         if (str == "啟動") {

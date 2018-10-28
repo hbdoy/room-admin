@@ -28,3 +28,7 @@ tr label {
 [type="checkbox"]+span:not(.lever) {
     padding-left: 10px !important;
 }
+
+.btn-width {
+    width: 80px;
+}

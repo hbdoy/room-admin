@@ -40,3 +40,7 @@ tr th:first-child, tr td:first-child{
     /* font-weight: bold; */
     color: #1BB426;
 }
+
+.btn-width {
+    width: 80px;
+}

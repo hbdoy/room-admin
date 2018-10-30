@@ -36,8 +36,8 @@ $(document).ready(function () {
                         <td>hahaha</td>
                         <td>hahaha</td>
                         <td>
-                            <a href="#" class="btn-text-blue">修改</a>
-                            <a href="#" class="btn-text-red">刪除</a>
+                            <a href="#" class="btn-text-blue" data-key="${final_key}">修改</a>
+                            <a href="#" class="btn-text-red" data-key="${final_key}">刪除</a>
                         </td>
                     </tr>
                     `;
@@ -47,7 +47,69 @@ $(document).ready(function () {
         $(`#table-content`).html(str);
     }
 
-    function itemStatus(state){
-        return state == "已借出"? "status-text-black":"status-text-green";
+    function itemStatus(state) {
+        return state == "已借出" ? "status-text-black" : "status-text-green";
+    }
+
+    $("#addBtn").click(createItem);
+
+    function createItem(e) {
+        e.preventDefault();
+        var formData = $("#myForm").serializeArray();
+        console.log(formData);
+        var bool = false;
+        var formObj = {};
+        for (const val of formData) {
+            if (!valdateFormValue(val)) {
+                bool = false;
+                break;
+            }
+            formObj[val.name] = val.value;
+            bool = true;
+        }
+        if (!bool) {
+            alert("所有欄位皆須填寫");
+        } else {
+            console.log(formObj);
+            $.ajax({
+                url: `https://xn--pss23c41retm.tw/api/item/${formObj.itemDepart}/${formObj.itemRoom}`,
+                type: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "cache-control": "no-cache"
+                },
+                data: JSON.stringify({
+                    itemID: formObj.itemId,
+                    itemName: formObj.itemName,
+                    imgSrc: "https://imgur.com",
+                    itemRule: formObj.itemRule,
+                    type: formObj.itemType
+                }),
+                success: function (result) {
+                    console.log(result);
+                    alert("新增成功");
+                },
+                error: function (error) {
+                    console.log("error:", error);
+                    $(`#table-content`).html(`<h4 class="red-text text-darken-2">伺服器發生錯誤，請稍後再試</h4>`);
+                }
+            });
+        }
+    }
+
+    function valdateFormValue(data) {
+        var bool = false;
+        switch (data.name) {
+            case 'itemId':
+            case 'itemRule':
+            case 'itemName':
+            case 'itemType':
+            case 'itemDepart':
+            case 'itemRoom':
+                bool = data.value != "";
+                return bool;
+            default:
+                return bool;
+        }
     }
 });

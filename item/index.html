@@ -74,10 +74,6 @@
                         <div class="row">
                             <form id="myForm">
                                 <div class="input-field col s12 m6">
-                                    <input id="itemId" name="itemId" type="text">
-                                    <label for="itemId">物品編號</label>
-                                </div>
-                                <div class="input-field col s12 m6">
                                     <select name="itemRule">
                                         <option value="" disabled selected>Choose your option</option>
                                         <option value="靜態資產">靜態資產</option>
@@ -86,8 +82,8 @@
                                     <label>物品規則</label>
                                 </div>
                                 <div class="input-field col s12 m6">
-                                    <input id="itemName" name="itemName" type="text">
-                                    <label for="itemName">物品名稱</label>
+                                    <input id="itemId" name="itemId" type="text">
+                                    <label for="itemId">物品編號</label>
                                 </div>
                                 <div class="input-field col s12 m6">
                                     <select name="itemType">
@@ -100,8 +96,19 @@
                                     <label>物品類型</label>
                                 </div>
                                 <div class="input-field col s12 m6">
-                                    <input id="itemDepart" name="itemDepart" type="text">
-                                    <label for="itemDepart">學院</label>
+                                    <input id="itemName" name="itemName" type="text">
+                                    <label for="itemName">物品名稱</label>
+                                </div>
+
+                                <div class="input-field col s12 m6">
+                                    <select name="itemDepart">
+                                        <option value="" disabled selected>Choose your option</option>
+                                        <option value="管理學院">管理學院</option>
+                                        <option value="科技學院">科技學院</option>
+                                        <option value="人文學院">人文學院</option>
+                                        <option value="教育學院">教育學院</option>
+                                    </select>
+                                    <label>學院</label>
                                 </div>
                                 <div class="input-field col s12 m6">
                                     <input id="itemRoom" name="itemRoom" type="number">

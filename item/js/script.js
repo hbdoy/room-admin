@@ -1,6 +1,10 @@
 $(document).ready(function () {
     M.AutoInit();
 
+    $("#addBtn").click(createItem);
+
+    $(document).on('click', '.delBtn', delItem);
+
     function getData() {
         $(`#table-content`).html(`<h4 class="grey-text text-darken-2">載入中...</h4>`);
         $.ajax({
@@ -37,7 +41,7 @@ $(document).ready(function () {
                         <td>hahaha</td>
                         <td>
                             <a href="#" class="btn-text-blue" data-key="${final_key}">修改</a>
-                            <a href="#" class="btn-text-red" data-key="${final_key}">刪除</a>
+                            <a href="#" class="delBtn btn-text-red" data-key="${final_key + "&" + inner_key + "&" + key}">刪除</a>
                         </td>
                     </tr>
                     `;
@@ -50,8 +54,6 @@ $(document).ready(function () {
     function itemStatus(state) {
         return state == "已借出" ? "status-text-black" : "status-text-green";
     }
-
-    $("#addBtn").click(createItem);
 
     function createItem(e) {
         e.preventDefault();
@@ -88,6 +90,7 @@ $(document).ready(function () {
                 success: function (result) {
                     console.log(result);
                     alert("新增成功");
+                    location.reload();
                 },
                 error: function (error) {
                     console.log("error:", error);
@@ -110,6 +113,27 @@ $(document).ready(function () {
                 return bool;
             default:
                 return bool;
+        }
+    }
+
+    function delItem(e) {
+        e.preventDefault();
+        if (e.target.dataset.key != "" && confirm("確認是否要刪除?")) {
+            var keyArr = e.target.dataset.key.split("&");
+            console.log(keyArr);
+            $.ajax({
+                url: `https://xn--pss23c41retm.tw/api/item/${keyArr[2]}/${keyArr[1]}/${keyArr[0]}`,
+                type: "DELETE",
+                success: function (result) {
+                    console.log(result);
+                    alert("刪除成功");
+                    location.reload();
+                },
+                error: function (error) {
+                    console.log("error:", error);
+                    $(`#table-content`).html(`<h4 class="red-text text-darken-2">伺服器發生錯誤，請稍後再試</h4>`);
+                }
+            });
         }
     }
 });

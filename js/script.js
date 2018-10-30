@@ -143,7 +143,7 @@ $(document).ready(function () {
         $('.modal').modal();
     }
 
-    $(document).click('.borrowLog', function (e) {
+    $(document).on('click', '.borrowLog', function (e) {
         // console.log(e.target.dataset.id);
         var id = e.target.dataset.id;
         $(`#log${id} .modal-content .frame`).html(`<h4 class="grey-text text-darken-2">載入中...</h4>`);

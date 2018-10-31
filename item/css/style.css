@@ -48,3 +48,11 @@ tr th:first-child, tr td:first-child{
 .btn-width {
     width: 80px;
 }
+
+td > .row {
+    margin-bottom: 0 !important;
+}
+td .row > .input-field {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}

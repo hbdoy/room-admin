@@ -51,81 +51,85 @@ $(document).ready(function () {
     }
 
     function render(data) {
+        console.log(depart);
         let str = "";
         for (const key in data) {
+            console.log(key);
             if (data.hasOwnProperty(key)) {
-                const element = data[key];
-                str += `
-                <div class="col s12">
-                    <div class="card">
-                        <div class="row">
-                            <div class="col s12 m4 pr-md-0">
-                                <div class="card-image">
-                                    <img src="./img/1.jpeg">
+                if ((JSON.parse(getCookie("space")))[depart] && (JSON.parse(getCookie("space")))[depart].indexOf(parseInt(key)) != -1) {
+                    const element = data[key];
+                    str += `
+                    <div class="col s12">
+                        <div class="card">
+                            <div class="row">
+                                <div class="col s12 m4 pr-md-0">
+                                    <div class="card-image">
+                                        <img src="./img/1.jpeg">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col s12 m8 pl-md-0">
-                                <div class="card-stacked">
-                                    <div class="card-content">
-                                        <span class="card-title justify-content-between">
-                                            <div class="text-bold">R${key}</div>
-                                            <div>
-                                                ${checkServiceStatus(element.service)}
-                                            </div>
-                                        </span>
-                                        <div class="row mb-0">
-                                            <div class="col s12 m6">
-                                                <label>借用人: Bob</label>
-                                                <label>借用期間: 2018/10/18</label>
-                                            </div>
-                                            <div class="col s12 m6">
-                                                <div class="switch">
-                                                    <label>
-                                                        門鎖
-                                                        <input type="checkbox" disabled ${checkDeviceStatus(element.equipment.doorLock.power)}>
-                                                        <span class="lever"></span>
-                                                        ${element.equipment.doorLock.door}/${element.equipment.doorLock.lock}
-                                                    </label>
+                                <div class="col s12 m8 pl-md-0">
+                                    <div class="card-stacked">
+                                        <div class="card-content">
+                                            <span class="card-title justify-content-between">
+                                                <div class="text-bold">R${key}</div>
+                                                <div>
+                                                    ${checkServiceStatus(element.service)}
                                                 </div>
-                                                <div class="switch">
-                                                    <label>
-                                                        RFID
-                                                        <input type="checkbox" disabled ${checkDeviceStatus(element.equipment.rfid.state)}>
-                                                        <span class="lever"></span>
-                                                    </label>
+                                            </span>
+                                            <div class="row mb-0">
+                                                <div class="col s12 m6">
+                                                    <label>借用人: Bob</label>
+                                                    <label>借用期間: 2018/10/18</label>
                                                 </div>
-                                                <div class="switch">
-                                                    <label>
-                                                        玻璃感測器
-                                                        <input type="checkbox" disabled ${checkDeviceStatus(element.equipment.glassDetect.power)}>
-                                                        <span class="lever"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col s12 my-1 divider"></div>
-                                            <div class="col s6 m3 offset-m6">
-                                                <a href="#cam${key}" class="btn waves-effect waves-light w100 modal-trigger">即時影像</a>
-                                                <div id="cam${key}" class="modal modal-fixed-footer">
-                                                    <div class="modal-content">
-                                                        <h4>即時影像</h4>
-                                                        <p>
-                                                            <iframe class="w100" src="${element.equipment.webcam}"></iframe>
-                                                        </p>
+                                                <div class="col s12 m6">
+                                                    <div class="switch">
+                                                        <label>
+                                                            門鎖
+                                                            <input type="checkbox" disabled ${checkDeviceStatus(element.equipment.doorLock.power)}>
+                                                            <span class="lever"></span>
+                                                            ${element.equipment.doorLock.door}/${element.equipment.doorLock.lock}
+                                                        </label>
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <a class="modal-close waves-effect waves-red btn-flat">Cancel</a>
+                                                    <div class="switch">
+                                                        <label>
+                                                            RFID
+                                                            <input type="checkbox" disabled ${checkDeviceStatus(element.equipment.rfid.state)}>
+                                                            <span class="lever"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="switch">
+                                                        <label>
+                                                            玻璃感測器
+                                                            <input type="checkbox" disabled ${checkDeviceStatus(element.equipment.glassDetect.power)}>
+                                                            <span class="lever"></span>
+                                                        </label>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col s6 m3">
-                                                <a href="#log${key}" class="btn waves-effect waves-light w100 borrowLog modal-trigger" data-id="${key}">借閱紀錄</a>
-                                                <div id="log${key}" class="modal modal-fixed-footer">
-                                                    <div class="modal-content">
-                                                        <h4>借閱紀錄</h4>
-                                                        <p class="frame"></p>
+                                                <div class="col s12 my-1 divider"></div>
+                                                <div class="col s6 m3 offset-m6">
+                                                    <a href="#cam${key}" class="btn waves-effect waves-light w100 modal-trigger">即時影像</a>
+                                                    <div id="cam${key}" class="modal modal-fixed-footer">
+                                                        <div class="modal-content">
+                                                            <h4>即時影像</h4>
+                                                            <p>
+                                                                <iframe class="w100" src="${element.equipment.webcam}"></iframe>
+                                                            </p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <a class="modal-close waves-effect waves-red btn-flat">Cancel</a>
+                                                        </div>
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <a class="modal-close waves-effect waves-red btn-flat">Cancel</a>
+                                                </div>
+                                                <div class="col s6 m3">
+                                                    <a href="#log${key}" class="btn waves-effect waves-light w100 borrowLog modal-trigger" data-id="${key}">借閱紀錄</a>
+                                                    <div id="log${key}" class="modal modal-fixed-footer">
+                                                        <div class="modal-content">
+                                                            <h4>借閱紀錄</h4>
+                                                            <p class="frame"></p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <a class="modal-close waves-effect waves-red btn-flat">Cancel</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -134,8 +138,8 @@ $(document).ready(function () {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>`;
+                    </div>`;
+                }
             }
         }
         str != "" ? str : `<h4 class="red-text text-darken-2">該院別沒有教室</h4>`;

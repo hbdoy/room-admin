@@ -56,7 +56,7 @@ $(document).ready(function () {
         for (const key in data) {
             console.log(key);
             if (data.hasOwnProperty(key)) {
-                if ((JSON.parse(getCookie("space")))[depart] && (JSON.parse(getCookie("space")))[depart].indexOf(parseInt(key)) != -1) {
+                if (getCookie("space") != "" && (JSON.parse(getCookie("space")))[depart] && (JSON.parse(getCookie("space")))[depart].indexOf(parseInt(key)) != -1) {
                     const element = data[key];
                     str += `
                     <div class="col s12">
@@ -142,8 +142,11 @@ $(document).ready(function () {
                 }
             }
         }
-        str != "" ? str : `<h4 class="red-text text-darken-2">該院別沒有教室</h4>`;
-        $("#allRoom").html(str);
+        if(str != ""){
+            $("#allRoom").html(str);
+        } else {
+            $("#allRoom").html("<h4 class='red-text text-darken-2'>該院別沒有教室</h4>");
+        }
         $('.modal').modal();
     }
 

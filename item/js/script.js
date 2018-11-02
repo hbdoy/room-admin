@@ -69,6 +69,10 @@ $(document).ready(function () {
         console.log(formData);
         var bool = false;
         var formObj = {};
+        if(formData.length != 6) {
+            alert("所有欄位皆須填寫");
+            return;
+        }
         for (const val of formData) {
             if (!valdateFormValue(val)) {
                 bool = false;

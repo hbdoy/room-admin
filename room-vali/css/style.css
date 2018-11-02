@@ -1,5 +1,13 @@
+body {
+    font-family: '微軟正黑體';
+}
+
 .nav-wrapper {
     font-family: 'Josefin Sans', sans-serif;
+}
+
+li a {
+    font-family: '微軟正黑體';
 }
 
 .text-right {
@@ -39,4 +47,8 @@ tr label {
 
 .titlepadding {
     padding: 20px 0px;
+}
+
+li a {
+    font-family: '微軟正黑體';
 }

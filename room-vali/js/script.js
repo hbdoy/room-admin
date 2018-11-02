@@ -61,7 +61,7 @@ $(document).ready(function () {
                         location.reload();
                     })
                     .catch((err) => {
-                        $(`#table-content`).html(`<h4 class="red-text text-darken-2">${err? "伺服器發生問題，請稍後再試":err}</h4>`);
+                        $(`#table-content`).html(`<h4 class="red-text text-darken-2">${err == ""? "伺服器發生問題，請稍後再試":err}</h4>`);
                     })
             }
         });
@@ -153,8 +153,9 @@ $(document).ready(function () {
                     resolve(key + " 刪除成功");
                 },
                 error: function (error) {
-                    console.log(key + ":\n" + error);
-                    reject(error.message);
+                    console.log(key + "\n");
+                    console.log(error.responseJSON.message);
+                    reject(error.responseJSON.message);
                 }
             });
         });

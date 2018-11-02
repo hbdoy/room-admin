@@ -1,3 +1,7 @@
+.nav-wrapper {
+    font-family: 'Quicksand', sans-serif;
+}
+
 .text-right {
     text-align: right;
 }
@@ -55,4 +59,8 @@ td > .row {
 td .row > .input-field {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
+}
+
+.titlepadding {
+    padding: 20px 0px;
 }

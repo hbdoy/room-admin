@@ -1,3 +1,7 @@
+.nav-wrapper {
+    font-family: 'Quicksand', sans-serif;
+}
+
 .text-right {
     text-align: right;
 }
@@ -12,6 +16,10 @@
 
 .btn-border {
     border: 0.5px solid #d1d1d1;
+}
+
+.btn-width {
+    width: 80px;
 }
 
 .form-head-shadow {
@@ -29,6 +37,6 @@ tr label {
     padding-left: 10px !important;
 }
 
-.btn-width {
-    width: 80px;
+.titlepadding {
+    padding: 20px 0px;
 }

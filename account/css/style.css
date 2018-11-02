@@ -1,3 +1,7 @@
+.nav-wrapper {
+    font-family: 'Quicksand', sans-serif;
+}
+
 .text-right {
     text-align: right;
 }
@@ -31,4 +35,8 @@ tr label {
 
 .btn-width {
     width: 80px;
+}
+
+.titlepadding {
+    padding: 20px 0px;
 }

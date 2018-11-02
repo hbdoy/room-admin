@@ -41,6 +41,30 @@ $(document).ready(function () {
                 });
             }
         });
+        $("#delBtn").click(function () {
+            var all = $(".checkboxForm").serializeArray();
+            console.log(all);
+            if (all.length <= 0) {
+                alert("請先選取教室");
+            } else {
+                var tmp = [];
+                for (var i = 0; i < all.length; i++) {
+                    tmp.push(delRoom(all[i].value));
+                }
+                if (!confirm(`確定要刪除${tmp.length}筆資料?`)) {
+                    return;
+                }
+                Promise.all(tmp)
+                    .then((val) => {
+                        console.log(val);
+                        alert("刪除成功");
+                        location.reload();
+                    })
+                    .catch((err) => {
+                        $(`#table-content`).html(`<h4 class="red-text text-darken-2">${err? "伺服器發生問題，請稍後再試":err}</h4>`);
+                    })
+            }
+        });
         $(".checkAll1").click(function () {
             if ($(".checkAll1").prop("checked")) { //如果全選按鈕有被選擇的話（被選擇是true）
                 $("input[name='room-checkbox[]']").prop("checked", true); //把所有的核取方框的property都變成勾選
@@ -111,5 +135,28 @@ $(document).ready(function () {
             }
         }
         $(`#table-content`).html(str);
+    }
+
+    function delRoom(key) {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: `https://xn--pss23c41retm.tw/api/reservation/管理學院/441/${key}`,
+                type: "DELETE",
+                data: JSON.stringify({
+                    "deleteRepeat": false
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-HTTP-Method-Override": "DELETE"
+                },
+                success: function () {
+                    resolve(key + " 刪除成功");
+                },
+                error: function (error) {
+                    console.log(key + ":\n" + error);
+                    reject(error.message);
+                }
+            });
+        });
     }
 });

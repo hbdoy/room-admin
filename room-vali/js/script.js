@@ -3,8 +3,43 @@ $(document).ready(function () {
 
     function eventBind() {
         $(document).change(function () {
-            var all = $("#myForm").serializeArray();
+            // var all = $(".checkboxForm").serializeArray();
+            // console.log(all);
+        });
+        $("#addBtn").click(function () {
+            var all = $(".checkboxForm").serializeArray();
             console.log(all);
+            if (all.length <= 0) {
+                alert("請先選取教室");
+            } else {
+                var tmp = [];
+                for (var i = 0; i < all.length; i++) {
+                    tmp.push(all[i].value);
+                }
+                if (!confirm(`確定要審核${tmp.length}筆資料?`)) {
+                    return;
+                }
+                $.ajax({
+                    url: `https://xn--pss23c41retm.tw/api/reservation/管理學院/441`,
+                    type: "PUT",
+                    data: JSON.stringify({
+                        "keys": tmp
+                    }),
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-HTTP-Method-Override": "PUT"
+                    },
+                    success: function (result) {
+                        console.log(result);
+                        alert("審核成功");
+                        location.reload();
+                    },
+                    error: function (error) {
+                        console.log("error:", error);
+                        $(`#table-content`).html(`<h4 class="red-text text-darken-2">伺服器發生錯誤，請稍後再試</h4>`);
+                    }
+                });
+            }
         });
         $(".checkAll1").click(function () {
             if ($(".checkAll1").prop("checked")) { //如果全選按鈕有被選擇的話（被選擇是true）
@@ -56,10 +91,12 @@ $(document).ready(function () {
                     str += `
                     <tr>
                         <td>
-                            <label>
-                                <input type="checkbox" name="room-checkbox[]" value="${final_key}" />
-                                <span>　</span>
-                            </label>
+                            <form class="checkboxForm">
+                                <label>
+                                    <input type="checkbox" name="room-checkbox[]" value="${final_key}" />
+                                    <span>　</span>
+                                </label>
+                            </form>
                         </td>
                         <td>${key}</td>
                         <td>${final_element.start.slice(0, 10)}</td>
@@ -67,7 +104,7 @@ $(document).ready(function () {
                         <td>${final_element.end.slice(11, 16)}</td>
                         <td>${final_element.name}</td>
                         <td>${final_element.type == "inside"? "校內用途: " + final_element.title:"校外用途: " + final_element.title}</td>
-                        <td>${final_element.repeat_type != ""? final_element.repeat_type:"無"}</td>
+                        <td>${final_element.repeat_type? final_element.repeat_type:"無"}</td>
                     </tr>
                     `;
                 }
